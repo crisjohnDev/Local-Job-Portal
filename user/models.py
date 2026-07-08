@@ -11,6 +11,7 @@ class User(AbstractUser):
     role = models.CharField(max_length=200, choices=ROLE_CHOICES, default='applicant')
     company = models.CharField(max_length=200, null=True, blank=True)
     company_profile = models.TextField(null=True, blank=True)
+    
 
     def __str__(self):
         return self.username
