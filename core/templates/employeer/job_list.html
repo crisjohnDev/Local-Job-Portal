@@ -1,0 +1,114 @@
+{% extends 'employer.html' %}
+
+{% block content %}
+<!-- Top Heading Section -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
+    <div>
+        <h1 class="h2 fw-bold text-dark">Job Postings</h1>
+        <p class="text-muted">Manage your organization's active listings, look over salaries, and toggle visibility states.</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="{% url 'job-post' %}" class="btn btn-employer shadow-sm btn-sm fw-medium py-2 px-3">
+            <i class="bi bi-plus-lg me-1"></i> Post a New Job
+        </a>
+    </div>
+</div>
+
+<!-- Table Card Container -->
+<div class="card dashboard-card border-0 bg-white">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light text-secondary small text-uppercase font-monospace">
+                    <tr>
+                        <th scope="col" class="ps-4 py-3">Job Title</th>
+                        <th scope="col" class="py-3" style="min-width: 250px;">Description</th>
+                        <th scope="col" class="py-3">Salary Range</th>
+                        <th scope="col" class="py-3">Location</th>
+                        <th scope="col" class="py-3">Status</th>
+                        <th scope="col" class="pe-4 py-3 text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in jobs %}
+                    <tr>
+                        <td class="ps-4">
+                            <div class="fw-bold text-dark">{{ job.title }}</div>
+                            <small class="text-muted">
+                                Posted {{ job.created_at|timesince }} ago
+                            </small>
+                        </td>
+
+                        <td>
+                            <p class="text-muted small mb-0 text-truncate" style="max-width: 300px;">
+                                {{ job.description }}
+                            </p>
+                        </td>
+
+                        <td>
+                            <span class="badge bg-light text-dark border fw-semibold font-monospace">
+                                ₱{{ job.salary }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="text-secondary small">
+                                <i class="bi bi-geo-alt me-1"></i>{{ job.location }}
+                            </span>
+                        </td>
+
+                        <td>
+                            {% if job.is_available %}
+                                <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill small">
+                                    <i class="bi bi-patch-check-fill me-1"></i> Available
+                                </span>
+                            {% else %}
+                                <span class="badge bg-danger-subtle text-danger px-2 py-1 rounded-pill small">
+                                    <i class="bi bi-x-circle-fill me-1"></i> Unavailable
+                                </span>
+                            {% endif %}
+                        </td>
+
+                        <td class="pe-4 text-end">
+                            <div class="dropdown">
+                                <button class="btn btn-light btn-sm border dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown">
+                                    Manage
+                                </button>
+
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+                                    {% if job.is_available %}
+                                        <li>
+                                            <a class="dropdown-item text-danger"
+                                            href="{% url 'toggle-job-status' job.id %}">
+                                                <i class="bi bi-toggle2-off me-2"></i>Set Unavailable
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a class="dropdown-item text-success"
+                                            href="{% url 'toggle-job-status' job.id %}">
+                                                <i class="bi bi-toggle2-on me-2"></i>Set Available
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-5">
+                            <i class="bi bi-folder-x fs-1 d-block mb-2"></i>
+                            No job positions found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

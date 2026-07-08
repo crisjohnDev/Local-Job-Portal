@@ -1,0 +1,131 @@
+{% extends "employer.html" %}
+
+{% block content %}
+
+
+
+            <!-- Top Heading Section -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
+                <div>
+                    <h1 class="h2 fw-bold text-dark">Recruitment Overview</h1>
+                    <p class="text-muted">Monitor listings, evaluate application metrics, and source local candidates.</p>
+                </div>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <a href="#post-job" class="btn btn-employer shadow-sm btn-sm fw-medium py-2 px-3"><i class="bi bi-plus-lg me-1"></i> Create New Job Post</a>
+                </div>
+            </div>
+
+            <!-- Metric Tracking Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted small text-uppercase fw-bold mb-1">Active Postings</h6>
+                                <h3 class="fw-bold mb-0">4</h3>
+                            </div>
+                            <div class="bg-employer-subtle p-3 rounded"><i class="bi bi-collection-play fs-4"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted small text-uppercase fw-bold mb-1">New Applicants</h6>
+                                <h3 class="fw-bold mb-0 text-dark">14</h3>
+                            </div>
+                            <div class="bg-employer-subtle p-3 rounded"><i class="bi bi-person-plus fs-4"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted small text-uppercase fw-bold mb-1">Total Job Views</h6>
+                                <h3 class="fw-bold mb-0 text-dark">1,240</h3>
+                            </div>
+                            <div class="bg-employer-subtle p-3 rounded"><i class="bi bi-graph-up fs-4"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Left Content Segment: Active Jobs & Applicants Panel -->
+                <div class="col-xl-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold text-dark mb-0">Current Live Job Listings</h5>
+                        <a href="#" class="text-decoration-none small text-employer">Manage all posts</a>
+                    </div>
+                    
+                    <!-- Job Post Card Item 1 -->
+                    <div class="card dashboard-card bg-white p-4 mb-3 border-start border-success border-4">
+                        <div class="row align-items-center g-3">
+                            <div class="col-md-7">
+                                <h6 class="fw-bold text-dark mb-1">Junior Frontend Developer</h6>
+                                <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i>Tech Park West — Full-time</p>
+                            </div>
+                            <div class="col-md-3 text-md-center">
+                                <span class="badge bg-employer-subtle d-inline-block px-3 py-2"><i class="bi bi-people me-1"></i>8 Applicants</span>
+                            </div>
+                            <div class="col-md-2 text-md-end">
+                                <button class="btn btn-light btn-sm w-100 border fw-medium">Review</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Post Card Item 2 -->
+                    <div class="card dashboard-card bg-white p-4 mb-3 border-start border-success border-4">
+                        <div class="row align-items-center g-3">
+                            <div class="col-md-7">
+                                <h6 class="fw-bold text-dark mb-1">UI/UX Graphic Designer</h6>
+                                <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i>Remote / Hybrid — Contract</p>
+                            </div>
+                            <div class="col-md-3 text-md-center">
+                                <span class="badge bg-employer-subtle d-inline-block px-3 py-2"><i class="bi bi-people me-1"></i>6 Applicants</span>
+                            </div>
+                            <div class="col-md-2 text-md-end">
+                                <button class="btn btn-light btn-sm w-100 border fw-medium">Review</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content Segment: Quick Mini Reports View -->
+                <div class="col-xl-4">
+                    <h5 class="fw-bold text-dark mb-3">Hiring Performance Report</h5>
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between small text-muted mb-1">
+                                <span>Application Conversion Rate</span>
+                                <span class="fw-bold text-dark">64%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-employer" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small text-muted mb-1">
+                                <span>Time-to-Hire (Avg. Days)</span>
+                                <span class="fw-bold text-dark">18 Days</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <hr class="text-muted my-3">
+                        
+                        <!-- Mini Checklist Report Output -->
+                        <div class="d-flex align-items-center justify-content-between small text-secondary">
+                            <span><i class="bi bi-check-circle-fill text-success me-1"></i> 2 Jobs Filled This Month</span>
+                            <a href="#" class="text-employer text-decoration-none fw-medium">Full Reports <i class="bi bi-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+{% endblock %}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Job Portal - Find Near, Work Close</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(10, 88, 202, 0.1) 100%);
+            padding: 80px 0;
+        }
+        .job-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+        }
+        .category-badge {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .category-badge:hover {
+            background-color: #0d6efd !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="#">
+                <i class="bi bi-geo-alt-fill me-2"></i>Local Job Portal
+            </a>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-expand-lg navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links & CTAs -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium" href="#">Find Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#">Browse Companies</a>
+                    </li>
+                </ul>
+                
+                <!-- Right Side Actions -->
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <a href="{% url 'login' %}" class="btn btn-link text-decoration-none text-secondary fw-semibold px-3">Sign In</a>
+                    <a href="{% url 'signup' %}" class="btn btn-outline-primary fw-semibold px-3">Sign Up</a>
+                    <a href="{% url 'employer-login' %}" class="btn btn-primary fw-semibold px-3 ms-lg-2">
+                        <i class="bi bi-plus-circle me-1"></i> Post a Job
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero & Main Search Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-4">
+                <div class="col-lg-8">
+                    <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill fw-semibold">Local Opportunities Wait</span>
+                    <h1 class="display-4 fw-bold text-dark mb-3">Find Your Next Job Right in Your Community</h1>
+                    <p class="lead text-muted">Discover hundreds of job openings near you from trusted local employers.</p>
+                </div>
+            </div>
+
+            <!-- Search Bar Component -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-sm p-3 border-0 bg-white">
+                        <form class="row g-2">
+                            <!-- Keyword Input -->
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control border-0 ps-0" placeholder="Job title, keywords, or company...">
+                                </div>
+                            </div>
+                            <!-- Divider line for desktop -->
+                            <div class="col-md-1 d-none d-md-flex align-items-center justify-content-center position-relative">
+                                <div class="vr h-75 position-absolute top-50 start-50 translate-middle text-muted"></div>
+                            </div>
+                            <!-- Location Input -->
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-transparent border-0 text-muted"><i class="bi bi-geo-alt"></i></span>
+                                    <input type="text" class="form-control border-0 ps-0" placeholder="City, neighborhood, or zip...">
+                                </div>
+                            </div>
+                            <!-- Search Button -->
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary w-100 py-2.5 fw-semibold">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Keywords Quick Badges -->
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-10 text-center text-muted small">
+                    <span class="me-2">Popular searches:</span>
+                    <span class="badge bg-light text-dark border p-2 me-1 category-badge">Remote</span>
+                    <span class="badge bg-light text-dark border p-2 me-1 category-badge">Retail & Sales</span>
+                    <span class="badge bg-light text-dark border p-2 me-1 category-badge">Healthcare</span>
+                    <span class="badge bg-light text-dark border p-2 category-badge">Logistics</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: List of Jobs -->
+    <main class="container py-5">
+        <div class="row mb-4 align-items-end">
+            <div class="col-md-6">
+                <h2 class="fw-bold text-dark mb-1">Latest Job Listings</h2>
+                <p class="text-muted mb-0">Recently posted jobs around your area.</p>
+            </div>
+            <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                <div class="dropdown d-inline-block">
+                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm fw-medium" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-filter me-1"></i> Sort by: Most Recent
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
+                        <li><a class="dropdown-menu-item dropdown-item" href="#">Most Recent</a></li>
+                        <li><a class="dropdown-menu-item dropdown-item" href="#">Highest Salary</a></li>
+                        <li><a class="dropdown-menu-item dropdown-item" href="#">Nearest Location</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Job Card 1 -->
+             {% for i in jobs %}
+            <div class="col-12">
+                <div class="card job-card border border-light-subtle shadow-sm p-4">
+                    <div class="row align-items-center g-3">
+                        <div class="col-md-8">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="bg-primary-subtle text-primary rounded p-3 d-none d-sm-block">
+                                    <i class="bi bi-building fs-3"></i>
+                                </div>
+                                <div>
+                                    <span class="badge bg-success-subtle text-success mb-2 px-2.5 py-1 fw-medium">{{ i.job_type }}</span>
+                                    <h5 class="fw-bold mb-1"><a href="#" class="text-decoration-none text-dark">{{ i.title }}</a></h5>
+                                    {% comment %} <p class="mb-2 text-muted fw-medium small">Downtown Retail Group</p> {% endcomment %}
+                                    <div class="d-flex flex-wrap gap-3 text-secondary small">
+                                        <span><i class="bi bi-geo-alt me-1"></i>{{ i.address}}</span>
+                                        <span><i class="bi bi-cash-stack me-1"></i>{{ i.salary }}</span>
+                                        <span><i class="bi bi-clock me-1"></i>{{ i.created_at }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-md-end d-flex d-md-block justify-content-between align-items-center mt-3 mt-md-0">
+                            <span class="badge bg-light text-dark border p-2 d-md-none"><i class="bi bi-bookmark"></i></span>
+                            <a href="#" class="btn btn-outline-primary fw-medium px-4">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        <!-- Pagination -->
+        <nav class="mt-5" aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Simple Modern Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5 border-top border-secondary">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <div class="col-md-4 mx-auto mt-3">
+                    <h5 class="fw-bold mb-4 text-primary"><i class="bi bi-geo-alt-fill me-2"></i>Local Job Portal</h5>
+                    <p class="text-white-50">Our mission is simple: to make regional economies grow by bridging employment gaps efficiently, right in your hometown.</p>
+                </div>
+                <hr class="w-100 d-md-none">
+                <div class="col-md-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 fw-bold text-light">For Seekers</h6>
+                    <p class="mb-2"><a href="#" class="text-white-50 text-decoration-none small">Browse Jobs</a></p>
+                    <p class="mb-2"><a href="#" class="text-white-50 text-decoration-none small">Build Profile</a></p>
+                </div>
+                <div class="col-md-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 fw-bold text-light">For Employers</h6>
+                    <p class="mb-2"><a href="#" class="text-white-50 text-decoration-none small">Post a Job</a></p>
+                    <p class="mb-2"><a href="#" class="text-white-50 text-decoration-none small">Pricing Plans</a></p>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8 text-center text-md-start">
+                    <p class="text-white-50 small mb-0">© 2026 Local Job Portal. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

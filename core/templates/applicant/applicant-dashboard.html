@@ -1,0 +1,128 @@
+{% extends "applicant.html" %}
+
+{% block content %}
+            <!-- Dashboard Top Greeting Header -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
+                <div>
+                    <h1 class="h2 fw-bold text-dark">Welcome back, Alex!</h1>
+                    <p class="text-muted">Here is what is happening with your job hunt today.</p>
+                </div>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <a href="#" class="btn btn-primary shadow-sm btn-sm fw-medium py-2 px-3"><i class="bi bi-search me-1"></i> Explore New Jobs</a>
+                </div>
+            </div>
+
+            <!-- Statistics Grid Row -->
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted small text-uppercase fw-bold mb-1">Total Applications</h6>
+                                <h3 class="fw-bold mb-0">12</h3>
+                            </div>
+                            <div class="bg-primary-subtle text-primary p-3 rounded"><i class="bi bi-folder2-open fs-4"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted small text-uppercase fw-bold mb-1">Interviews Scheduled</h6>
+                                <h3 class="fw-bold mb-0 text-success">2</h3>
+                            </div>
+                            <div class="bg-success-subtle text-success p-3 rounded"><i class="bi bi-calendar-check fs-4"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted small text-uppercase fw-bold mb-1">Profile Views</h6>
+                                <h3 class="fw-bold mb-0 text-info">45</h3>
+                            </div>
+                            <div class="bg-info-subtle text-info p-3 rounded"><i class="bi bi-eye fs-4"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Layout Content Splits -->
+            <div class="row g-4">
+                
+                <!-- Left Column: Recommended Job Posts -->
+                <div class="col-xl-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold text-dark mb-0"><i class="bi bi-fire text-warning me-2"></i>Recommended Job Posts</h5>
+                        <a href="#" class="text-decoration-none small">View all recommendations</a>
+                    </div>
+                    
+                    <!-- Job Item Card 1 -->
+                    <div class="card dashboard-card bg-white p-4 mb-3 border-start border-primary border-4">
+                        <div class="row align-items-center g-2">
+                            <div class="col-md-9">
+                                <h6 class="fw-bold text-dark mb-1">Junior Frontend Developer</h6>
+                                <p class="text-muted small mb-2">PixelCraft Studio — <i class="bi bi-geo-alt me-1"></i>Tech Park West</p>
+                                <div class="d-flex flex-wrap gap-2 text-secondary small">
+                                    <span class="badge bg-light text-dark border">$3,500 - $4,200/mo</span>
+                                    <span><i class="bi bi-clock me-1"></i>Full-time</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-md-end mt-2 mt-md-0">
+                                <button class="btn btn-outline-primary btn-sm w-100 fw-semibold">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Item Card 2 -->
+                    <div class="card dashboard-card bg-white p-4 mb-3">
+                        <div class="row align-items-center g-2">
+                            <div class="col-md-9">
+                                <h6 class="fw-bold text-dark mb-1">Customer Support Specialist</h6>
+                                <p class="text-muted small mb-2">Apex Local Solutions — <i class="bi bi-geo-alt me-1"></i>Downtown Office</p>
+                                <div class="d-flex flex-wrap gap-2 text-secondary small">
+                                    <span class="badge bg-light text-dark border">$2,200/mo</span>
+                                    <span><i class="bi bi-clock me-1"></i>Remote Friendly</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-md-end mt-2 mt-md-0">
+                                <button class="btn btn-outline-primary btn-sm w-100 fw-semibold">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Track Applications -->
+                <div class="col-xl-4">
+                    <h5 class="fw-bold text-dark mb-3"><i class="bi bi-clock-history me-2 text-primary"></i>Recent Application Track</h5>
+                    <div class="card dashboard-card bg-white p-4">
+                        <div class="list-group list-group-flush">
+                            
+                            <!-- Application tracking item 1 -->
+                            <div class="list-group-item px-0 pt-0 pb-3 border-bottom">
+                                <div class="d-flex w-100 justify-content-between mb-1">
+                                    <h6 class="fw-bold mb-0 text-dark small">Data Entry Clerk</h6>
+                                    <span class="badge bg-warning-subtle text-warning">Under Review</span>
+                                </div>
+                                <p class="mb-1 text-muted small">Metro Logistics Center</p>
+                                <small class="text-secondary" style="font-size: 0.75rem;"><i class="bi bi-calendar me-1"></i>Applied 3 days ago</small>
+                            </div>
+
+                            <!-- Application tracking item 2 -->
+                            <div class="list-group-item px-0 py-3 border-bottom">
+                                <div class="d-flex w-100 justify-content-between mb-1">
+                                    <h6 class="fw-bold mb-0 text-dark small">IT Support Intern</h6>
+                                    <span class="badge bg-success-subtle text-success">Interviewing</span>
+                                </div>
+                                <p class="mb-1 text-muted small">City Health Hospital</p>
+                                <small class="text-secondary" style="font-size: 0.75rem;"><i class="bi bi-calendar me-1"></i>Applied 1 week ago</small>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+{% endblock %}
