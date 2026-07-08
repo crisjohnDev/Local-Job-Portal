@@ -139,7 +139,7 @@
                                 <div>
                                     <span class="badge bg-success-subtle text-success mb-2 px-2.5 py-1 fw-medium">{{ i.job_type }}</span>
                                     <h5 class="fw-bold mb-1"><a href="#" class="text-decoration-none text-dark">{{ i.title }}</a></h5>
-                                    {% comment %} <p class="mb-2 text-muted fw-medium small">Downtown Retail Group</p> {% endcomment %}
+                                    <p class="mb-2 text-muted fw-medium small">{{ i.employer.company }}</p>
                                     <div class="d-flex flex-wrap gap-3 text-secondary small">
                                         <span><i class="bi bi-geo-alt me-1"></i>{{ i.address}}</span>
                                         <span><i class="bi bi-cash-stack me-1"></i>{{ i.salary }}</span>
@@ -150,7 +150,7 @@
                         </div>
                         <div class="col-md-4 text-md-end d-flex d-md-block justify-content-between align-items-center mt-3 mt-md-0">
                             <span class="badge bg-light text-dark border p-2 d-md-none"><i class="bi bi-bookmark"></i></span>
-                            <a href="#" class="btn btn-outline-primary fw-medium px-4">Apply Now</a>
+                            <a href="{% url 'login' %}" class="btn btn-outline-primary fw-medium px-4">Apply Now</a>
                         </div>
                     </div>
                 </div>

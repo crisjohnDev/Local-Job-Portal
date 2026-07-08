@@ -58,8 +58,11 @@ def employeer_login(request):
     return render(request, "employer-login.html")
 
 def landing_page(request):
-    jobs = JobPost.objects.all()
-    return render(request, 'landing_page.html', {'jobs': jobs})
+    jobs = JobPost.objects.select_related("employer").filter(is_available=True)
+
+    return render(request, "landing_page.html", {
+        "jobs": jobs
+    })
 
 @login_required
 def applicant_dashboard(request):
